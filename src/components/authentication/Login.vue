@@ -33,7 +33,7 @@
       </v-layout>
       <v-layout row>
         <v-flex xs12 xs6 offset-xs3>
-          <v-btn>Login</v-btn>
+          <v-btn @click="login">Login</v-btn>
         </v-flex>
       </v-layout>
     </form>
@@ -47,6 +47,21 @@
         username: '',
         e1: false,
         password: ''
+      }
+    },
+    methods: {
+      login () {
+        const data = {
+          client_id: 2,
+          client_secret: 'IEDIGDlEbaqCg6OrBQs93P8skUhBMWvGim3SCn7s',
+          grant_type: 'password',
+          username: this.username,
+          password: this.password
+        }
+        this.$http.post('http://api.wccvi.app/oauth/token', data)
+          .then(response => {
+            console.log(response)
+          })
       }
     }
   }
