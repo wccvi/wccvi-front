@@ -25,7 +25,7 @@
       </v-list>
       <v-list class="pt-0" dense>
         <v-divider></v-divider>
-        <v-list-tile v-for="item in items" :key="item.title">
+        <v-list-tile v-for="item in items" :key="item.title" :to="item.url">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -35,17 +35,26 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed class="deep-orange" dark>
+    <v-toolbar fixed class="yellow" dark>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Warwickshire CCVI</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat v-for="item in items" :to="item.url">
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.title }}
+        </v-btn>
+      </v-toolbar-items>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden=sm-and-down">
         <v-btn flat to="/login">
           <v-icon left>unlock_open</v-icon>
           Sign In
         </v-btn>
       </v-toolbar-items>
-      <v-toolbar-items>
+      <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat to="/register">
           <v-icon left>face</v-icon>
           Sign Up
@@ -64,16 +73,13 @@
   import Login from './components/authentication/Login.vue'
   import Register from './components/authentication/Register.vue'
   export default {
-    components: {
-      'login': Login,
-      'register': Register
-    },
     data () {
       return {
         drawer: null,
         items: [
-          { title: 'Home', icon: 'dashboard' },
-          { title: 'About', icon: 'question_answer' }
+          { title: 'Home', icon: 'home', url: '/' },
+          { title: 'Squad', icon: 'question_answer', url: 'squad' },
+          { title: 'League Table', icon: 'dashboard', url: '/league-table' }
         ],
         mini: false,
         right: null
