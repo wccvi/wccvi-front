@@ -8,6 +8,8 @@ import Home from './components/home/Home.vue'
 import Squad from './components/squad/Squad.vue'
 import LeagueTable from './components/leagueTable/LeagueTable.vue'
 
+import Scorecard from './components/scorecard/Scorcard.vue'
+
 
 Vue.use(VueRouter)
 
@@ -32,6 +34,10 @@ const router = new VueRouter({
     {
       path: '/league-table',
       component: LeagueTable
+    },
+    {
+      path: '/scorecard',
+      component: Scorecard
     }
   ]
 })

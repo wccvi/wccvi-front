@@ -1,5 +1,5 @@
 <template>
-  <v-app id="example-2" toolbar>
+  <v-app toolbar>
     <v-navigation-drawer
       temporary
       v-model="drawer"
@@ -36,11 +36,12 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed class="yellow" dark>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>Warwickshire CCVI</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat v-for="item in items" :to="item.url">
+        <v-btn flat v-for="item in items" :to="item.url" :key="item.title"
+        >
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
@@ -48,7 +49,7 @@
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden=sm-and-down">
+      <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat to="/login">
           <v-icon left>unlock_open</v-icon>
           Sign In
@@ -62,7 +63,7 @@
       </v-toolbar-items>
     </v-toolbar>
     <main>
-      <v-container fluid>
+      <v-container>
         <router-view></router-view>
       </v-container>
     </main>
@@ -79,7 +80,8 @@
         items: [
           { title: 'Home', icon: 'home', url: '/' },
           { title: 'Squad', icon: 'question_answer', url: 'squad' },
-          { title: 'League Table', icon: 'dashboard', url: '/league-table' }
+          { title: 'League Table', icon: 'dashboard', url: '/league-table' },
+          { title: 'Scorecard', icon: 'dashboard', url: '/scorecard' }
         ],
         mini: false,
         right: null
