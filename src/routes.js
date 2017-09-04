@@ -9,6 +9,7 @@ import Squad from './components/squad/Squad.vue'
 import LeagueTable from './components/leagueTable/LeagueTable.vue'
 
 import Scorecard from './components/scorecard/Scorcard.vue'
+import ScorecardNew from './components/scorecard/ScorecardNew.vue'
 
 
 Vue.use(VueRouter)
@@ -38,6 +39,10 @@ const router = new VueRouter({
     {
       path: '/scorecard',
       component: Scorecard
+    },
+    {
+      path: '/scorecard/new',
+      component: ScorecardNew
     }
   ]
 })
