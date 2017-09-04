@@ -11,6 +11,11 @@
           </v-flex>
         </v-layout>
         <v-layout row>
+          <v-flex xs12>
+            <v-btn class="primary" to="/scorecard/new">Create New Scorecard</v-btn>
+          </v-flex>
+        </v-layout>
+        <v-layout row>
           <v-flex>
             <v-card>
               <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
